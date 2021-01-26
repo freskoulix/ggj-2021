@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/Merged_Recovered_Tool.fbx" type="PackedScene" id=1]
+
+[node name="MainScene" type="Spatial"]
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="Merged_Recovered_Tool" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 15, 15, 0 )
