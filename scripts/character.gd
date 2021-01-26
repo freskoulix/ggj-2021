@@ -19,9 +19,6 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		mouse_handler(event)
 
-	if event.is_action_pressed("toggle_fullscreen"):
-		OS.window_fullscreen = !OS.window_fullscreen
-
 func keyboard_handler():
 	if Input.is_key_pressed(KEY_W):
 		var pos = Vector3(0, 0, -KEYBOARD_SENS)

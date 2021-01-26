@@ -7,10 +7,11 @@ onready var rootScene = get_tree().get_current_scene()
 var isGameRunning = false
 
 func _ready():
+	OS.window_fullscreen = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	rootScene.add_child(mainMenu)
-	mainScene.hide()
 	rootScene.add_child(mainScene)
+	mainScene.hide()
 
 func _process(delta):
 	if Input.is_key_pressed(KEY_ESCAPE):
