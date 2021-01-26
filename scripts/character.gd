@@ -20,6 +20,9 @@ func _input(event):
 		OS.window_fullscreen = !OS.window_fullscreen
 
 func keyboard_handler():
+	if Input.is_key_pressed(KEY_ESCAPE):
+		get_tree().change_scene("res://scenes/MainMenu.tscn")
+	
 	if Input.is_key_pressed(KEY_W):
 		var pos = Vector3(0, 0, -KEYBOARD_SENS)
 		character.translate(pos)
