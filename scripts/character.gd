@@ -12,13 +12,13 @@ func _process(delta):
 
 	keyboard_handler()
 
-func _input(event): 
+func _input(event):
 	if not scene.isGameRunning:
 		return
 
 	if event is InputEventMouseMotion:
 		mouse_handler(event)
-	
+
 	if event.is_action_pressed("toggle_fullscreen"):
 		OS.window_fullscreen = !OS.window_fullscreen
 
