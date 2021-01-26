@@ -17,6 +17,7 @@ transform = Transform( 1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 15, 15, 0 )
 
 [node name="Character" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.86826, 19.9504 )
+script = ExtResource( 4 )
 
 [node name="Camera" type="Camera" parent="Character"]
 transform = Transform( 1, -7.92048e-09, 2.09013e-08, 0, 0.935111, 0.354356, -2.23517e-08, -0.354356, 0.935111, 5.96046e-08, 10.7248, 1.88013 )
@@ -25,4 +26,3 @@ transform = Transform( 1, -7.92048e-09, 2.09013e-08, 0, 0.935111, 0.354356, -2.2
 transform = Transform( -2.98634, 0, 0.286025, 0.101355, 2.80533, 1.05823, -0.267465, 1.06307, -2.79255, 1.16078e-07, -0.881683, -8.73942 )
 mesh = ExtResource( 3 )
 material/0 = null
-script = ExtResource( 4 )
