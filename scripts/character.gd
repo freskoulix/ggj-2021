@@ -4,15 +4,18 @@ const KEYBOARD_SENS = 0.2
 const MOUSE_SENS = 0.002
 
 onready var scene = get_tree().get_current_scene()
-onready var character = scene.get_node('Character')
-
-func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+onready var character = scene.mainScene.get_node('Character')
 
 func _process(delta):
+	if not scene.isGameRunning:
+		return
+
 	keyboard_handler()
 
 func _input(event): 
+	if not scene.isGameRunning:
+		return
+
 	if event is InputEventMouseMotion:
 		mouse_handler(event)
 	
@@ -20,9 +23,6 @@ func _input(event):
 		OS.window_fullscreen = !OS.window_fullscreen
 
 func keyboard_handler():
-	if Input.is_key_pressed(KEY_ESCAPE):
-		get_tree().change_scene("res://scenes/MainMenu.tscn")
-	
 	if Input.is_key_pressed(KEY_W):
 		var pos = Vector3(0, 0, -KEYBOARD_SENS)
 		character.translate(pos)
