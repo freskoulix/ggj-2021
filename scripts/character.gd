@@ -12,5 +12,13 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if Input.is_key_pressed(KEY_W):
+		pass
+	elif Input.is_key_pressed(KEY_S):
+		pass
+
+	if Input.is_key_pressed(KEY_A):
+		pass
+	elif Input.is_key_pressed(KEY_D):
+		pass
