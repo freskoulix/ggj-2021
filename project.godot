@@ -16,11 +16,9 @@ _global_script_class_icons={
 [application]
 
 config/name="GGJ-2021"
-run/main_scene="res://scenes/RootScene.tscn"
+run/main_scene="res://scenes/MainScene.tscn"
 config/icon="res://icon.png"
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
-vram_compression/import_etc=true
 environment/default_environment="res://default_env.tres"
