@@ -1,16 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/Merged_Recovered_Tool.fbx" type="PackedScene" id=1]
 [ext_resource path="res://default_env.tres" type="Environment" id=2]
 [ext_resource path="res://assets/char_05.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://scripts/Character.gd" type="Script" id=4]
 
-[sub_resource type="GDScript" id=1]
-script/source = "extends Spatial
-"
-
 [node name="MainScene" type="Spatial"]
-script = SubResource( 1 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 2 )
