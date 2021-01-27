@@ -13,13 +13,17 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-anchor_left = 0.45
-anchor_top = 0.286
-anchor_right = 0.595
-anchor_bottom = 0.322
+anchor_left = 0.011
+anchor_top = 0.302
+anchor_right = 1.0
+anchor_bottom = 0.338
+margin_left = 17.32
+margin_top = -0.200012
+margin_right = -35.952
+margin_bottom = 0.199982
 custom_fonts/mono_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[color=white][b]Toby's lost adventure[/b][/color]"
+bbcode_text = "[center]Toby's lost adventure[/center]"
 text = "Toby's lost adventure"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -29,6 +33,8 @@ __meta__ = {
 anchor_top = 0.488
 anchor_right = 1.0
 anchor_bottom = 0.631
+margin_left = 1.0
+margin_right = 1.0
 margin_bottom = -0.799957
 text = "Let's find out"
 flat = true
@@ -38,11 +44,10 @@ __meta__ = {
 }
 
 [node name="Exit" type="Button" parent="."]
-anchor_top = 1.0
+anchor_top = 0.786
 anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -128.4
-margin_bottom = -43.4
+anchor_bottom = 0.928
+margin_bottom = -0.200073
 text = "I'm lost"
 flat = true
 script = ExtResource( 2 )
