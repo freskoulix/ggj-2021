@@ -7,13 +7,13 @@ onready var scene = get_tree().get_current_scene()
 onready var character = scene.mainScene.get_node('Character')
 
 func _process(delta):
-	if not scene.isGameRunning:
+	if scene.gameState != "started":
 		return
 
 	keyboard_handler()
 
 func _input(event):
-	if not scene.isGameRunning:
+	if scene.gameState != "started":
 		return
 
 	if event is InputEventMouseMotion:
