@@ -33,11 +33,8 @@ shape = SubResource( 9 )
 [node name="MeshInstance" type="MeshInstance" parent="World/RigidBody/CollisionShape"]
 mesh = ExtResource( 12 )
 material/0 = null
-<<<<<<< HEAD
-=======
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 1, 7.38693, 11.522, -0.384468 )
 stream = ExtResource( 5 )
 doppler_tracking = 2
->>>>>>> edf7bfa12dd2d0b58c422e980a08362dbb9f74ec
