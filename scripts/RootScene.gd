@@ -9,8 +9,6 @@ var gameState = "stopped"
 func _ready():
 	OS.window_fullscreen = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	rootScene.add_child(mainMenu)
-	rootScene.add_child(mainScene)
 	root_init()
 
 func _process(delta):
@@ -21,10 +19,12 @@ func _process(delta):
 		pause_game()
 
 func root_init():
+	rootScene.add_child(mainMenu)
 	menu_scene()
 	gameState = "stopped"
 
 func start_game():
+	rootScene.add_child(mainScene)
 	main_scene()
 	gameState = "started"
 

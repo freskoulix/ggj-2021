@@ -1,41 +1,39 @@
-extends Node
+extends Spatial
 
-const KEYBOARD_SENS = 0.2
-const MOUSE_SENS = 0.002
+onready var root = $"Character"
+onready var rb = $"RigidBody"
 
-onready var scene = get_tree().get_current_scene()
-onready var character = scene.mainScene.get_node('Character')
+func _ready():
+	pass
 
 func _process(delta):
-	if scene.gameState != "started":
-		return
+	pass
 
-	keyboard_handler()
+func _physic_process(delta):
+	pass
 
 func _input(event):
-	if scene.gameState != "started":
-		return
+	keybobar_handler(event)
+	
+func keyboard_handler(event):
+	if event is InputEventKey:
+		match event.scancode:
+			KEY_W:
+			KEY_A:
+			KEY_S:
+			KEY_D:
 
-	if event is InputEventMouseMotion:
-		mouse_handler(event)
-
-func keyboard_handler():
+	match Input.
 	if Input.is_key_pressed(KEY_W):
 		var pos = Vector3(0, 0, -KEYBOARD_SENS)
-		character.translate(pos)
+		characterRb.set_linear_velocity(pos)
 	elif Input.is_key_pressed(KEY_S):
 		var pos = Vector3(0, 0, KEYBOARD_SENS)
-		character.translate(pos)
+		characterRb.set_linear_velocity(pos)
 
 	if Input.is_key_pressed(KEY_A):
 		var pos = Vector3(-KEYBOARD_SENS, 0, 0)
-		character.translate(pos)
+		characterRb.set_linear_velocity(pos)
 	elif Input.is_key_pressed(KEY_D):
 		var pos = Vector3(+KEYBOARD_SENS, 0, 0)
-		character.translate(pos)
-
-func mouse_handler(event):
-	var move = event.relative * MOUSE_SENS
-
-	character.rotate_y(-move.x)
-	character.orthonormalize()
+		characterRb.set_linear_velocity(pos)
