@@ -5,4 +5,6 @@
 [node name="KinematicBody" type="KinematicBody"]
 
 [node name="char05_AnimAll" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8577, 20.7377, 33.3753 )
+transform = Transform( 200, 0, 0, 0, 200, 0, 0, 0, 200, 36.8577, 20.7377, 33.3753 )
+
+[editable path="char05_AnimAll"]
