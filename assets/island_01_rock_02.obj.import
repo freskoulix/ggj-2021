@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/island_01_rock_02.obj-5acea79da471ba252e8252cb5c9373bf.mesh"
+
+[deps]
+
+files=[ "res://.import/island_01_rock_02.obj-5acea79da471ba252e8252cb5c9373bf.mesh" ]
+
+source_file="res://assets/island_01_rock_02.obj"
+dest_files=[ "res://.import/island_01_rock_02.obj-5acea79da471ba252e8252cb5c9373bf.mesh", "res://.import/island_01_rock_02.obj-5acea79da471ba252e8252cb5c9373bf.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
