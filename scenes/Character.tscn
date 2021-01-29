@@ -13,6 +13,7 @@ animation = "char05_Jump"
 animation = "char05_Running"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=4]
+xfade_time = 0.5
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=5]
 switch_mode = 2
@@ -26,15 +27,17 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=9]
 switch_mode = 2
+xfade_time = 1.0
 
 [sub_resource type="AnimationNodeStateMachine" id=10]
 states/char05_Idle/node = SubResource( 1 )
 states/char05_Idle/position = Vector2( -799.706, 42.656 )
 states/char05_Jump/node = SubResource( 2 )
-states/char05_Jump/position = Vector2( -518.706, 207.656 )
+states/char05_Jump/position = Vector2( -518.706, 208.656 )
 states/char05_Running/node = SubResource( 3 )
 states/char05_Running/position = Vector2( -518.706, 42.656 )
 transitions = [ "char05_Idle", "char05_Running", SubResource( 4 ), "char05_Jump", "char05_Idle", SubResource( 5 ), "char05_Running", "char05_Jump", SubResource( 6 ), "char05_Jump", "char05_Running", SubResource( 7 ), "char05_Idle", "char05_Jump", SubResource( 8 ), "char05_Running", "char05_Idle", SubResource( 9 ) ]
+start_node = "char05_Idle"
 graph_offset = Vector2( -1026.28, -3.344 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=11]
@@ -42,7 +45,7 @@ graph_offset = Vector2( -1026.28, -3.344 )
 [sub_resource type="CapsuleShape" id=12]
 
 [node name="Root" type="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 9.05, 10 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 9.05, 7 )
 
 [node name="Player" type="KinematicBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0 )
