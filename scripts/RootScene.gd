@@ -7,11 +7,13 @@ onready var rootScene = get_tree().get_current_scene()
 var gameState = "stopped"
 
 func _ready():
-	OS.window_fullscreen = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	root_init()
 
-func _process(delta):
+func _input(event):
+	if event.is_action_pressed("toggle_fullscreen"):
+		OS.window_fullscreen = !OS.window_fullscreen
+
 	if Input.is_key_pressed(KEY_ESCAPE):
 		if gameState == "stopped":
 			return
