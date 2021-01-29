@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Start.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Exit.gd" type="Script" id=2]
+[ext_resource path="res://assets/main_menu/i01.jpg" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -12,30 +13,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-anchor_left = 0.011
-anchor_top = 0.302
-anchor_right = 1.0
-anchor_bottom = 0.338
-margin_left = 17.32
-margin_top = -0.200012
-margin_right = -35.952
-margin_bottom = 0.199982
-custom_fonts/mono_font = SubResource( 1 )
-bbcode_enabled = true
-bbcode_text = "[center]Toby's lost adventure[/center]"
-text = "Toby's lost adventure"
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 0.396851
+margin_right = 265.397
+margin_bottom = 602.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Start" type="Button" parent="."]
-anchor_top = 0.488
-anchor_right = 1.0
-anchor_bottom = 0.631
-margin_left = 1.0
-margin_right = 1.0
-margin_bottom = -0.799957
+[node name="Exit" type="Button" parent="VBoxContainer"]
+margin_top = 300.0
+margin_right = 265.0
+margin_bottom = 320.0
+text = "I'm lost"
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+margin_top = 200.0
+margin_right = 265.0
+margin_bottom = 44.0
 text = "Let's find out"
 flat = true
 script = ExtResource( 1 )
@@ -43,14 +43,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Exit" type="Button" parent="."]
-anchor_top = 0.786
-anchor_right = 1.0
-anchor_bottom = 0.928
-margin_bottom = -0.200073
-text = "I'm lost"
-flat = true
-script = ExtResource( 2 )
+[node name="game_title" type="RichTextLabel" parent="VBoxContainer"]
+margin_top = 48.0
+margin_right = 265.0
+margin_bottom = 68.0
+custom_fonts/mono_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Loki's Chill Adventure[/center]"
+visible_characters = 26
+tab_size = 24
+text = "Loki's Chill Adventure"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Background_image" type="MarginContainer" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Background_image"]
+margin_right = 3518.0
+margin_bottom = 2481.0
+texture = ExtResource( 3 )
+stretch_mode = 2
