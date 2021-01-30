@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/loki_music_3.ogg-59bfe38fe43840d40e8213e4d454c6fd.oggstr"
+
+[deps]
+
+source_file="res://audio/music/loki_music_3.ogg"
+dest_files=[ "res://.import/loki_music_3.ogg-59bfe38fe43840d40e8213e4d454c6fd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
