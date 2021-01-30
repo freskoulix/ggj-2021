@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://default_env.tres" type="Environment" id=2]
-[ext_resource path="res://scenes/_music_manager.gd" type="Script" id=3]
+[ext_resource path="res://scripts/MusicManager.gd" type="Script" id=3]
 [ext_resource path="res://audio/effects/Forest Atmosphere.ogg" type="AudioStream" id=5]
 
 [node name="MainScene" type="Spatial"]
@@ -16,8 +16,8 @@ transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 1, 7.38693, 11.522, -0.384468 )
 stream = ExtResource( 5 )
 doppler_tracking = 2
 
-[node name="_music_manager" type="Node" parent="."]
+[node name="MusicManager" type="Node" parent="."]
 script = ExtResource( 3 )
 
-[node name="_music" type="AudioStreamPlayer" parent="_music_manager"]
-[connection signal="finished" from="_music_manager/_music" to="_music_manager" method="_on__music_finished"]
+[node name="Music" type="AudioStreamPlayer" parent="MusicManager"]
+[connection signal="finished" from="MusicManager/Music" to="MusicManager" method="_on__music_finished"]
