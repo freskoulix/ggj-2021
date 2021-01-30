@@ -12,6 +12,8 @@ const ROTATION_INTERPOLATE_SPEED = 10
 const MIN_AIRBORNE_TIME = 0.1
 const JUMP_SPEED = 5
 
+const FRICTION = 0.1
+
 var airborne_time = 100
 
 var orientation = Transform()
@@ -89,6 +91,8 @@ func _physics_process(delta):
 	var h_velocity = orientation.origin / delta
 	velocity.x = h_velocity.x * 5
 	velocity.z = h_velocity.z * 5
+	velocity.x = lerp(velocity.x, 0, FRICTION)
+	velocity.z = lerp(velocity.z, 0, FRICTION)
 	velocity += gravity * delta
 	velocity = move_and_slide(velocity, Vector3.UP)
 
