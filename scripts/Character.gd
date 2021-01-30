@@ -144,14 +144,18 @@ func anim_handler(on_air, in_motion):
 			return
 		"jump":
 			if not on_air and not in_motion:
+				animation_player.stop(true)
+				animation_player.clear_queue()
 				state_machine.travel("Idle")
 				characterState = "idle"
 			elif not on_air and in_motion:
+				animation_player.stop(true)
+				animation_player.clear_queue()
 				state_machine.travel("Running")
 				characterState = "running"
 			return
 
 func handle_leap_of_faith(on_air, velocity_y):
-	if on_air and velocity_y <= -10:
+	if on_air and velocity_y <= -20:
 		var coordinates = player_model.global_transform.origin
 		rootScene.spawn_island(coordinates)
