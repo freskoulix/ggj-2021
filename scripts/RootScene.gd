@@ -61,7 +61,7 @@ func spawn_island(coordinates):
 	canSpawnIsland = false
 
 	var island = _rnd_select_island()
-	coordinates.y -= 10
+	coordinates.y -= 5
 	island.translate(coordinates)
 	islandsCollection.push_back(island)
 	rootScene.add_child(island)

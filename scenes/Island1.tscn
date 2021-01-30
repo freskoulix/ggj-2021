@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/light_house_island_DIFFUSE.jpg" type="Texture" id=1]
+[ext_resource path="res://scripts/Island1.gd" type="Script" id=2]
 [ext_resource path="res://assets/light_house_island.obj" type="ArrayMesh" id=3]
 
 [sub_resource type="ConcavePolygonShape" id=5]
@@ -34,3 +35,10 @@ material/0 = SubResource( 6 )
 transform = Transform( 0.35, 0, 0, 0, 0.649, 0, 0, 0, 0.35, -20.5823, 19.5961, -12.3788 )
 mesh = SubResource( 3 )
 material/0 = SubResource( 4 )
+script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="MeshInstance"]
+repeat = true
+playback_speed = 0.4
+playback/repeat = true
+playback/speed = 0.4
