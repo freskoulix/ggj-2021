@@ -24,6 +24,7 @@ var camera_x_rot = 0.0
 
 var characterState = "idle"
 
+onready var rootScene = get_tree().get_current_scene()
 
 onready var initial_position = transform.origin
 onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * ProjectSettings.get_setting("physics/3d/default_gravity_vector")
@@ -98,6 +99,7 @@ func _physics_process(delta):
 
 	var in_motion = abs(target.x) >= 0.5 or abs(target.z) >= 0.5
 	anim_handler(on_air, in_motion)
+	handle_leap_of_faith(on_air, velocity.y)
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -143,3 +145,8 @@ func anim_handler(on_air, in_motion):
 				state_machine.travel("Running")
 				characterState = "running"
 			return
+
+func handle_leap_of_faith(on_air, velocity_y):
+	if on_air and velocity_y <= -10:
+		var coordinates = player_model.global_transform.origin
+		rootScene.spawn_island(coordinates)
