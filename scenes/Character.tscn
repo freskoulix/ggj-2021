@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/char05_AnimAll.gltf" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Character.gd" type="Script" id=3]
@@ -6,46 +6,67 @@
 [sub_resource type="AnimationNodeAnimation" id=1]
 animation = "char05_Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=2]
-animation = "char05_Jump"
+[sub_resource type="AnimationNodeStateMachine" id=2]
 
 [sub_resource type="AnimationNodeAnimation" id=3]
+animation = "char05_Jump"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
 animation = "char05_Running"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=4]
-xfade_time = 0.5
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=5]
-switch_mode = 2
+[sub_resource type="AnimationNodeStateMachine" id=5]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=6]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=7]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=8]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=9]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
 switch_mode = 2
-xfade_time = 1.0
+auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=10]
-states/char05_Idle/node = SubResource( 1 )
-states/char05_Idle/position = Vector2( -799.706, 42.656 )
-states/char05_Jump/node = SubResource( 2 )
-states/char05_Jump/position = Vector2( -518.706, 208.656 )
-states/char05_Running/node = SubResource( 3 )
-states/char05_Running/position = Vector2( -518.706, 42.656 )
-transitions = [ "char05_Idle", "char05_Running", SubResource( 4 ), "char05_Jump", "char05_Idle", SubResource( 5 ), "char05_Running", "char05_Jump", SubResource( 6 ), "char05_Jump", "char05_Running", SubResource( 7 ), "char05_Idle", "char05_Jump", SubResource( 8 ), "char05_Running", "char05_Idle", SubResource( 9 ) ]
-start_node = "char05_Idle"
-graph_offset = Vector2( -1026.28, -3.344 )
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=11]
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+switch_mode = 2
+auto_advance = true
 
-[sub_resource type="CapsuleShape" id=12]
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=16]
+states/Idle/node = SubResource( 1 )
+states/Idle/position = Vector2( -870.28, 36.656 )
+states/IdleLoop/node = SubResource( 2 )
+states/IdleLoop/position = Vector2( -870.28, 208.656 )
+states/Jump/node = SubResource( 3 )
+states/Jump/position = Vector2( -635.28, 208.656 )
+states/Running/node = SubResource( 4 )
+states/Running/position = Vector2( -635.28, 36.656 )
+states/RunningLoop/node = SubResource( 5 )
+states/RunningLoop/position = Vector2( -423.28, 35.1159 )
+transitions = [ "Idle", "Jump", SubResource( 6 ), "Idle", "Running", SubResource( 7 ), "Running", "Idle", SubResource( 8 ), "Jump", "Idle", SubResource( 9 ), "Running", "Jump", SubResource( 10 ), "Jump", "Running", SubResource( 11 ), "Running", "RunningLoop", SubResource( 12 ), "RunningLoop", "Running", SubResource( 13 ), "Idle", "IdleLoop", SubResource( 14 ), "IdleLoop", "Idle", SubResource( 15 ) ]
+start_node = "Idle"
+graph_offset = Vector2( -1026.28, 5.19606 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=17]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=18]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=19]
+
+[sub_resource type="CapsuleShape" id=20]
 
 [node name="Root" type="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 9.05, 5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 5, -9 )
 
 [node name="Player" type="KinematicBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0 )
@@ -53,17 +74,22 @@ script = ExtResource( 3 )
 
 [node name="PlayerModel" parent="Player" instance=ExtResource( 2 )]
 
+[node name="AnimationPlayer" parent="Player/PlayerModel" index="2"]
+playback_process_mode = 0
+
 [node name="AnimationTree" type="AnimationTree" parent="Player/PlayerModel"]
-tree_root = SubResource( 10 )
+tree_root = SubResource( 16 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 process_mode = 0
 root_motion_track = NodePath("Armature/Skeleton:root_motion")
-parameters/playback = SubResource( 11 )
+parameters/playback = SubResource( 17 )
+parameters/IdleLoop/playback = SubResource( 18 )
+parameters/RunningLoop/playback = SubResource( 19 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Player"]
 transform = Transform( 0.05, 0, 0, 0, -8.14603e-09, -0.05, 0, 0.05, -8.14603e-09, 0, 0.05, 0 )
-shape = SubResource( 12 )
+shape = SubResource( 20 )
 
 [node name="RootMotionView" type="RootMotionView" parent="Player"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0 )
@@ -78,5 +104,6 @@ transform = Transform( -1, -1.11444e-07, 3.06191e-07, 0, 0.939693, 0.34202, -3.2
 spring_length = 0.5
 
 [node name="Camera" type="Camera" parent="Player/CameraBase/CameraRot/SpringArm"]
+near = 0.01
 
 [editable path="Player/PlayerModel"]
