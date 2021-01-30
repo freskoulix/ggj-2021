@@ -9,7 +9,7 @@ data = PoolVector3Array( -1.1175, 0.54, 1.2924, -1.8257, 0.5303, 0.7406, -0.5785
 [sub_resource type="SpatialMaterial" id=2]
 albedo_texture = ExtResource( 1 )
 
-[node name="Spatial" type="Spatial"]
+[node name="Island" type="Spatial"]
 
 [node name="RigidBody" type="RigidBody" parent="."]
 mode = 1
