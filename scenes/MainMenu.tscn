@@ -22,9 +22,8 @@ __meta__ = {
 }
 
 [node name="Exit" type="Button" parent="VBoxContainer"]
-margin_top = 300.0
 margin_right = 265.0
-margin_bottom = 320.0
+margin_bottom = 20.0
 text = "I'm lost"
 flat = true
 script = ExtResource( 2 )
@@ -33,7 +32,7 @@ __meta__ = {
 }
 
 [node name="Start" type="Button" parent="VBoxContainer"]
-margin_top = 200.0
+margin_top = 24.0
 margin_right = 265.0
 margin_bottom = 44.0
 text = "Let's find out"
@@ -46,7 +45,7 @@ __meta__ = {
 [node name="game_title" type="RichTextLabel" parent="VBoxContainer"]
 margin_top = 48.0
 margin_right = 265.0
-margin_bottom = 68.0
+margin_bottom = 48.0
 custom_fonts/mono_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[center]Loki's Chill Adventure[/center]"
@@ -58,6 +57,7 @@ __meta__ = {
 }
 
 [node name="Background_image" type="MarginContainer" parent="."]
+visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }

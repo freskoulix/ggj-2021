@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/light_house_island_DIFFUSE.jpg-87682525b3a88db4028f2ff86822224a.s3tc.stex"
 path.etc2="res://.import/light_house_island_DIFFUSE.jpg-87682525b3a88db4028f2ff86822224a.etc2.stex"
+path.etc="res://.import/light_house_island_DIFFUSE.jpg-87682525b3a88db4028f2ff86822224a.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/light_house_island_DIFFUSE.jpg"
-dest_files=[ "res://.import/light_house_island_DIFFUSE.jpg-87682525b3a88db4028f2ff86822224a.s3tc.stex", "res://.import/light_house_island_DIFFUSE.jpg-87682525b3a88db4028f2ff86822224a.etc2.stex" ]
+dest_files=[ "res://.import/light_house_island_DIFFUSE.jpg-87682525b3a88db4028f2ff86822224a.s3tc.stex", "res://.import/light_house_island_DIFFUSE.jpg-87682525b3a88db4028f2ff86822224a.etc2.stex", "res://.import/light_house_island_DIFFUSE.jpg-87682525b3a88db4028f2ff86822224a.etc.stex" ]
 
 [params]
 

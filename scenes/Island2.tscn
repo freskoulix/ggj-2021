@@ -20,3 +20,5 @@ shape = SubResource( 1 )
 [node name="MeshInstance" type="MeshInstance" parent="RigidBody/CollisionShape"]
 mesh = ExtResource( 2 )
 material/0 = SubResource( 2 )
+
+[node name="Coins" type="Spatial" parent="."]
