@@ -22,11 +22,15 @@ var velocity = Vector3()
 var aiming = false
 var camera_x_rot = 0.0
 
+var characterState = "idle"
+
+
 onready var initial_position = transform.origin
 onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * ProjectSettings.get_setting("physics/3d/default_gravity_vector")
 
 onready var player_model = $PlayerModel
 onready var animation_tree = $"PlayerModel/AnimationTree"
+onready var animation_player = $"PlayerModel/AnimationPlayer"
 onready var state_machine = animation_tree["parameters/playback"]
 
 onready var camera_base = $CameraBase
@@ -37,7 +41,7 @@ onready var camera_camera = camera_spring_arm.get_node(@"Camera")
 func _ready():
 	orientation = player_model.global_transform
 	orientation.origin = Vector3()
-	state_machine.start("char05_Idle")
+	state_machine.start("Idle")
 
 func _physics_process(delta):
 	var camera_move = Vector2(
@@ -82,8 +86,8 @@ func _physics_process(delta):
 	orientation *= root_motion
 
 	var h_velocity = orientation.origin / delta
-	velocity.x = -target.x * 2 # h_velocity.x
-	velocity.z = -target.z * 2 # h_velocity.z
+	velocity.x = h_velocity.x * 20
+	velocity.z = h_velocity.z * 20
 	velocity += gravity * delta
 	velocity = move_and_slide(velocity, Vector3.UP)
 
@@ -91,13 +95,9 @@ func _physics_process(delta):
 	orientation = orientation.orthonormalized()
 
 	player_model.global_transform.basis = orientation.basis
-	
-	if on_air:
-		state_machine.travel("char05_Jump")
-	elif abs(h_velocity.x) >= 0.005 or abs(h_velocity.z) >= 0.005:
-		state_machine.travel("char05_Running")
-	else:
-		state_machine.travel("char05_Idle")
+
+	var in_motion = abs(target.x) >= 0.5 or abs(target.z) >= 0.5
+	anim_handler(on_air, in_motion)
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -109,3 +109,37 @@ func rotate_camera(move):
 	camera_x_rot += move.y
 	camera_x_rot = clamp(camera_x_rot, deg2rad(CAMERA_X_ROT_MIN), deg2rad(CAMERA_X_ROT_MAX))
 	camera_rot.rotation.x = camera_x_rot
+
+func anim_handler(on_air, in_motion):
+	match characterState:
+		"idle":
+			if on_air:
+				state_machine.travel("Jump")
+				characterState = "jump"
+			elif in_motion:
+				state_machine.travel("Running")
+				characterState = "running"
+			else:
+				state_machine.travel("Idle")
+				characterState = "idle"
+			return
+		"running":
+			if on_air:
+				animation_player.stop(true)
+				animation_player.clear_queue()
+				state_machine.travel("Jump")
+				characterState = "jump"
+			elif not in_motion:
+				animation_player.stop(true)
+				animation_player.clear_queue()
+				state_machine.travel("Idle")
+				characterState = "idle"
+			return
+		"jump":
+			if not on_air and not in_motion:
+				state_machine.travel("Idle")
+				characterState = "idle"
+			elif not on_air and in_motion:
+				state_machine.travel("Running")
+				characterState = "running"
+			return
