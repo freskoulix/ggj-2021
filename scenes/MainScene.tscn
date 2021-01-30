@@ -20,4 +20,9 @@ doppler_tracking = 2
 script = ExtResource( 3 )
 
 [node name="Music" type="AudioStreamPlayer" parent="MusicManager"]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.939693, 0.34202, 0, -0.34202, -0.939693, 0, 20, -50 )
+light_energy = 0.4
+shadow_enabled = true
 [connection signal="finished" from="MusicManager/Music" to="MusicManager" method="_on__music_finished"]
