@@ -12,6 +12,9 @@ const ROTATION_INTERPOLATE_SPEED = 10
 const MIN_AIRBORNE_TIME = 0.1
 const JUMP_SPEED = 5
 
+const FRICTION = 0.1
+const CHARACTER_SPEED_MULTIPLIER = 10
+
 var airborne_time = 100
 
 var orientation = Transform()
@@ -24,6 +27,7 @@ var camera_x_rot = 0.0
 
 var characterState = "idle"
 
+onready var rootScene = get_tree().get_current_scene()
 
 onready var initial_position = transform.origin
 onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * ProjectSettings.get_setting("physics/3d/default_gravity_vector")
@@ -86,8 +90,10 @@ func _physics_process(delta):
 	orientation *= root_motion
 
 	var h_velocity = orientation.origin / delta
-	velocity.x = h_velocity.x * 5
-	velocity.z = h_velocity.z * 5
+	velocity.x = h_velocity.x * CHARACTER_SPEED_MULTIPLIER
+	velocity.z = h_velocity.z * CHARACTER_SPEED_MULTIPLIER
+	velocity.x = lerp(velocity.x, 0, FRICTION)
+	velocity.z = lerp(velocity.z, 0, FRICTION)
 	velocity += gravity * delta
 	velocity = move_and_slide(velocity, Vector3.UP)
 
@@ -98,6 +104,7 @@ func _physics_process(delta):
 
 	var in_motion = abs(target.x) >= 0.5 or abs(target.z) >= 0.5
 	anim_handler(on_air, in_motion)
+	handle_leap_of_faith(on_air, velocity.y)
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -143,3 +150,8 @@ func anim_handler(on_air, in_motion):
 				state_machine.travel("Running")
 				characterState = "running"
 			return
+
+func handle_leap_of_faith(on_air, velocity_y):
+	if on_air and velocity_y <= -10:
+		var coordinates = player_model.global_transform.origin
+		rootScene.spawn_island(coordinates)
