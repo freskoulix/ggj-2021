@@ -106,4 +106,10 @@ spring_length = 0.5
 [node name="Camera" type="Camera" parent="Player/CameraBase/CameraRot/SpringArm"]
 near = 0.01
 
+[node name="SpotLight" type="SpotLight" parent="Player"]
+transform = Transform( 1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 0.2, -0.045603 )
+light_color = Color( 0.2, 0.2, 0.2, 1 )
+light_energy = 0.2
+shadow_enabled = true
+
 [editable path="Player/PlayerModel"]
