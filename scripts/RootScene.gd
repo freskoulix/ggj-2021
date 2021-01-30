@@ -2,6 +2,11 @@ extends Node
 
 onready var mainMenu = preload("res://scenes/MainMenu.tscn").instance()
 onready var mainScene = preload("res://scenes/MainScene.tscn").instance()
+onready var islandScenes = [
+	preload("res://scenes/Island.tscn").instance(),
+	preload("res://scenes/Island.tscn").instance()
+]
+
 onready var rootScene = get_tree().get_current_scene()
 
 var gameState = "stopped"
@@ -28,6 +33,7 @@ func root_init():
 func start_game():
 	rootScene.add_child(mainScene)
 	main_scene()
+	spawn_island()
 	gameState = "started"
 
 func pause_game():
@@ -43,3 +49,11 @@ func main_scene():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	mainMenu.hide()
 	mainScene.show()
+
+func spawn_island():
+	var island = _rnd_select_island()
+	rootScene.add_child(island)
+
+func _rnd_select_island():
+	var index = randi() % islandScenes.size()
+	return islandScenes[index]

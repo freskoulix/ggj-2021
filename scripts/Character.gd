@@ -86,8 +86,8 @@ func _physics_process(delta):
 	orientation *= root_motion
 
 	var h_velocity = orientation.origin / delta
-	velocity.x = h_velocity.x * 20
-	velocity.z = h_velocity.z * 20
+	velocity.x = h_velocity.x * 10
+	velocity.z = h_velocity.z * 10
 	velocity += gravity * delta
 	velocity = move_and_slide(velocity, Vector3.UP)
 

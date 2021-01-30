@@ -66,7 +66,7 @@ graph_offset = Vector2( -1026.28, 5.19606 )
 [sub_resource type="CapsuleShape" id=20]
 
 [node name="Root" type="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 9.05, 5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 10, -2 )
 
 [node name="Player" type="KinematicBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0 )
