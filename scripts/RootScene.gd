@@ -3,9 +3,9 @@ extends Node
 onready var mainMenu = preload("res://scenes/MainMenu.tscn").instance()
 onready var mainScene = preload("res://scenes/MainScene.tscn").instance()
 onready var islandScenes = [
-	#preload("res://scenes/Island.tscn"),
-	#preload("res://scenes/Island1.tscn"),
-	#preload("res://scenes/Island2.tscn"),
+	preload("res://scenes/Island.tscn"),
+	preload("res://scenes/Island1.tscn"),
+	preload("res://scenes/Island2.tscn"),
 	preload("res://scenes/Island3.tscn")
 ]
 onready var islandsCollection = []
