@@ -13,6 +13,7 @@ const MIN_AIRBORNE_TIME = 0.1
 const JUMP_SPEED = 5
 
 const FRICTION = 0.1
+const CHARACTER_SPEED_MULTIPLIER = 10
 
 var airborne_time = 100
 
@@ -89,8 +90,8 @@ func _physics_process(delta):
 	orientation *= root_motion
 
 	var h_velocity = orientation.origin / delta
-	velocity.x = h_velocity.x * 10
-	velocity.z = h_velocity.z * 10
+	velocity.x = h_velocity.x * CHARACTER_SPEED_MULTIPLIER
+	velocity.z = h_velocity.z * CHARACTER_SPEED_MULTIPLIER
 	velocity.x = lerp(velocity.x, 0, FRICTION)
 	velocity.z = lerp(velocity.z, 0, FRICTION)
 	velocity += gravity * delta
