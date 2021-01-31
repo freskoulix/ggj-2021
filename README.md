@@ -1,10 +1,10 @@
-# Toby's lost adventure
+# Loki's Chill Adventures
 ## Global Game Jam 2021
 ### Theme: Lost & Found
 
 ## Description
 Lost in a beautiful fantasy world of floating islands,
-Toby tries to find his way wondering for treats.
+Loki tries to find his way wondering for treats.
 Beware! Do not lose faith! Especially during a big jump!
 
 ## Play online - WebGL version
