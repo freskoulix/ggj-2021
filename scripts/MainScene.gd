@@ -5,4 +5,4 @@ onready var rootScene = get_tree().get_current_scene()
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	rootScene.add_child(characterScene)
+	self.add_child(characterScene)

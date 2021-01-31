@@ -38,23 +38,27 @@ func root_init():
 	gameState = "stopped"
 
 func start_game():
-	rootScene.add_child(mainScene)
+	if gameState == "stopped":
+		rootScene.add_child(mainScene)
+		spawn_island(Vector3(0, 0, 0))
 	main_scene()
-	spawn_island(Vector3(0, 0, 0))
 	gameState = "started"
 
 func pause_game():
+	get_tree().paused = false
 	menu_scene()
 	gameState = "paused"
 
 func menu_scene():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().paused = true
 	mainScene.hide()
 	mainMenu.show()
 
 func main_scene():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	mainMenu.hide()
+	get_tree().paused = false
 	mainScene.show()
 
 func spawn_island(coordinates):
@@ -72,7 +76,7 @@ func spawn_island(coordinates):
 	coordinates.y -= (height + 0.2)
 	island.translate(coordinates)
 	islandsCollection.push_back(island)
-	rootScene.add_child(island)
+	mainScene.add_child(island)
 
 func _rnd_select_island():
 	var index = randi() % islandScenes.size()

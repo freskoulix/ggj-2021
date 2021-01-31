@@ -6,6 +6,7 @@
 [sub_resource type="DynamicFont" id=1]
 
 [node name="MainMenu" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -13,24 +14,23 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-anchor_left = 0.45
-anchor_top = 0.286
-anchor_right = 0.595
-anchor_bottom = 0.322
+anchor_right = 1.0
+anchor_bottom = 0.2
+margin_top = 80.0
 custom_fonts/mono_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[color=white][b]Toby's lost adventure[/b][/color]"
+bbcode_text = "[center][color=white][b]Toby's lost adventure[/b][/color][/center]"
 text = "Toby's lost adventure"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Start" type="Button" parent="."]
-anchor_top = 0.488
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.631
-margin_bottom = -0.799957
-text = "Let's find out"
+anchor_bottom = 0.6
+mouse_default_cursor_shape = 2
+text = "Let's find out!"
 flat = true
 script = ExtResource( 1 )
 __meta__ = {
@@ -42,10 +42,13 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -128.4
-margin_bottom = -43.4
-text = "I'm lost"
+margin_bottom = -68.4
+mouse_default_cursor_shape = 2
+text = "I'm lost I quit!"
 flat = true
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

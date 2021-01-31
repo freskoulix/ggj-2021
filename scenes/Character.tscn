@@ -11,10 +11,10 @@ animation = "char05_Idle"
 [sub_resource type="AnimationNodeAnimation" id=3]
 animation = "char05_Jump"
 
-[sub_resource type="AnimationNodeAnimation" id=4]
-animation = "char05_Running"
+[sub_resource type="AnimationNodeStateMachine" id=4]
 
-[sub_resource type="AnimationNodeStateMachine" id=5]
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "char05_Running"
 
 [sub_resource type="AnimationNodeStateMachine" id=6]
 
@@ -58,13 +58,13 @@ states/IdleLoop/node = SubResource( 2 )
 states/IdleLoop/position = Vector2( -870.28, 208.656 )
 states/Jump/node = SubResource( 3 )
 states/Jump/position = Vector2( -635.28, 208.656 )
-states/Running/node = SubResource( 4 )
+states/JumpLoop/node = SubResource( 4 )
+states/JumpLoop/position = Vector2( -423.28, 208.656 )
+states/Running/node = SubResource( 5 )
 states/Running/position = Vector2( -635.28, 36.656 )
-states/RunningLoop/node = SubResource( 5 )
+states/RunningLoop/node = SubResource( 6 )
 states/RunningLoop/position = Vector2( -423.28, 35.1159 )
-states/StateMachine/node = SubResource( 6 )
-states/StateMachine/position = Vector2( -423.28, 208.656 )
-transitions = [ "Idle", "Jump", SubResource( 7 ), "Idle", "Running", SubResource( 8 ), "Running", "Idle", SubResource( 9 ), "Jump", "Idle", SubResource( 10 ), "Running", "Jump", SubResource( 11 ), "Jump", "Running", SubResource( 12 ), "Running", "RunningLoop", SubResource( 13 ), "RunningLoop", "Running", SubResource( 14 ), "Idle", "IdleLoop", SubResource( 15 ), "IdleLoop", "Idle", SubResource( 16 ), "StateMachine", "Jump", SubResource( 17 ), "Jump", "StateMachine", SubResource( 18 ) ]
+transitions = [ "Idle", "Jump", SubResource( 7 ), "Idle", "Running", SubResource( 8 ), "Running", "Idle", SubResource( 9 ), "Jump", "Idle", SubResource( 10 ), "Running", "Jump", SubResource( 11 ), "Jump", "Running", SubResource( 12 ), "Running", "RunningLoop", SubResource( 13 ), "RunningLoop", "Running", SubResource( 14 ), "Idle", "IdleLoop", SubResource( 15 ), "IdleLoop", "Idle", SubResource( 16 ), "JumpLoop", "Jump", SubResource( 17 ), "Jump", "JumpLoop", SubResource( 18 ) ]
 start_node = "Idle"
 graph_offset = Vector2( -1026.28, 5.19606 )
 
@@ -96,8 +96,8 @@ process_mode = 0
 root_motion_track = NodePath("Armature/Skeleton:root_motion")
 parameters/playback = SubResource( 20 )
 parameters/IdleLoop/playback = SubResource( 21 )
-parameters/RunningLoop/playback = SubResource( 22 )
-parameters/StateMachine/playback = SubResource( 23 )
+parameters/JumpLoop/playback = SubResource( 22 )
+parameters/RunningLoop/playback = SubResource( 23 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Player"]
 transform = Transform( 0.05, 0, 0, 0, -8.14603e-09, -0.05, 0, 0.05, -8.14603e-09, 0, 0.05, 0 )
