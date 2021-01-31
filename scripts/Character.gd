@@ -156,6 +156,9 @@ func anim_handler(on_air, in_motion):
 			return
 
 func handle_leap_of_faith(on_air, velocity_y):
-	if on_air and velocity_y <= -20:
+	if not rootScene.can_spawn_island:
+		rootScene.can_spawn_island = is_on_floor()
+
+	if on_air and velocity_y <= -10:
 		var coordinates = player_model.global_transform.origin
 		rootScene.spawn_island(coordinates)
