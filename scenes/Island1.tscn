@@ -20,6 +20,7 @@ emission_operator = 0
 emission_on_uv2 = false
 
 [node name="Island" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.917, 0, 7.217 )
 
 [node name="RigidBody" type="RigidBody" parent="."]
 mode = 1
