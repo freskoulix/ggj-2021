@@ -57,4 +57,5 @@ toggle_fullscreen={
 
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
+environment/default_clear_color=Color( 0.647059, 0.839216, 0.945098, 1 )
 environment/default_environment="res://default_env.tres"

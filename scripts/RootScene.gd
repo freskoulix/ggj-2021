@@ -1,6 +1,7 @@
 extends Node
 
 onready var mainMenu = preload("res://scenes/MainMenu.tscn").instance()
+onready var mainMenuPlayer = mainMenu.get_node("AudioStreamPlayer2D")
 onready var mainScene = preload("res://scenes/MainScene.tscn").instance()
 onready var islandScenes = [
 	preload("res://scenes/Island.tscn"),
@@ -41,6 +42,7 @@ func start_game():
 	if gameState == "stopped":
 		rootScene.add_child(mainScene)
 		spawn_island(Vector3(0, 0, 0))
+	mainMenuPlayer.playing = false
 	main_scene()
 	gameState = "started"
 
@@ -52,6 +54,7 @@ func pause_game():
 func menu_scene():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = true
+	mainMenuPlayer.playing = true
 	mainScene.hide()
 	mainMenu.show()
 
