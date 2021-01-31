@@ -18,8 +18,8 @@ emission_energy = 3.86
 emission_operator = 0
 emission_on_uv2 = false
 
-[node name="Spatial" type="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.76831 )
+[node name="Island" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.419, 15, 4.206 )
 
 [node name="RigidBody" type="RigidBody" parent="."]
 mode = 1

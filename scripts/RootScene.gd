@@ -6,13 +6,16 @@ onready var islandScenes = [
 	preload("res://scenes/Island.tscn"),
 	preload("res://scenes/Island1.tscn"),
 	preload("res://scenes/Island2.tscn"),
-	preload("res://scenes/Island3.tscn")
+	preload("res://scenes/Island3.tscn"),
+	preload("res://scenes/Island4.tscn"),
+	preload("res://scenes/Island5.tscn")
 ]
 onready var islandsCollection = []
 
 onready var rootScene = get_tree().get_current_scene()
 
-var canSpawnIsland = true
+var is_on_floor = false
+var can_spawn_island = true
 var gameState = "stopped"
 
 func _ready():
@@ -55,15 +58,18 @@ func main_scene():
 	mainScene.show()
 
 func spawn_island(coordinates):
-	if not canSpawnIsland:
+	if not can_spawn_island:
 		return
 
-	var timer = get_tree().create_timer(1.0)
+	can_spawn_island = false
+	var timer = get_tree().create_timer(4.5)
 	timer.connect("timeout", self, "_spawn_timeout")
-	canSpawnIsland = false
 
 	var island = _rnd_select_island()
-	coordinates.y -= 5
+	var meshInstance = island.get_node("RigidBody/CollisionShape/MeshInstance")
+	var aabb = meshInstance.get_aabb()
+	var height = aabb.size.z
+	coordinates.y -= (height + 0.2)
 	island.translate(coordinates)
 	islandsCollection.push_back(island)
 	rootScene.add_child(island)
@@ -73,4 +79,4 @@ func _rnd_select_island():
 	return islandScenes[index].instance()
 
 func _spawn_timeout():
-	canSpawnIsland = true
+	can_spawn_island = true
