@@ -1,5 +1,7 @@
 extends Area
 
+signal boneCollected
+
 func _ready():
 	pass
 
@@ -11,4 +13,9 @@ func _on_coin_body_entered(body):
 		$Timer.start()
 
 func _on_Timer_timeout():
+	emit_signal("boneCollected")
 	queue_free()
+
+
+func _on_coin_boneCollected():
+	pass # Replace with function body.
