@@ -18,12 +18,13 @@ surfaces/0 = {
 }
 
 [sub_resource type="CylinderShape" id=2]
-radius = 0.658618
-height = 1.80032
+radius = 0.147911
+height = 0.282091
 
 [node name="coin" type="Area"]
 
 [node name="coin" type="MeshInstance" parent="."]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 

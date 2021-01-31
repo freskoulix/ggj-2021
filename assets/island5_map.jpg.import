@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/island5_map.jpg-de1efde8dc3f30c81b6784b2bc79de13.s3tc.stex"
 path.etc2="res://.import/island5_map.jpg-de1efde8dc3f30c81b6784b2bc79de13.etc2.stex"
+path.etc="res://.import/island5_map.jpg-de1efde8dc3f30c81b6784b2bc79de13.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/island5_map.jpg"
-dest_files=[ "res://.import/island5_map.jpg-de1efde8dc3f30c81b6784b2bc79de13.s3tc.stex", "res://.import/island5_map.jpg-de1efde8dc3f30c81b6784b2bc79de13.etc2.stex" ]
+dest_files=[ "res://.import/island5_map.jpg-de1efde8dc3f30c81b6784b2bc79de13.s3tc.stex", "res://.import/island5_map.jpg-de1efde8dc3f30c81b6784b2bc79de13.etc2.stex", "res://.import/island5_map.jpg-de1efde8dc3f30c81b6784b2bc79de13.etc.stex" ]
 
 [params]
 
