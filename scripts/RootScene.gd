@@ -18,6 +18,7 @@ onready var rootScene = get_tree().get_current_scene()
 var is_on_floor = false
 var can_spawn_island = true
 var gameState = "stopped"
+var coinsCollected = 0
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
