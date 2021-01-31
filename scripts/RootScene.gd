@@ -7,7 +7,8 @@ onready var islandScenes = [
 	preload("res://scenes/Island1.tscn"),
 	preload("res://scenes/Island2.tscn"),
 	preload("res://scenes/Island3.tscn"),
-	preload("res://scenes/Island4.tscn")
+	preload("res://scenes/Island4.tscn"),
+	preload("res://scenes/Island5.tscn")
 ]
 onready var islandsCollection = []
 
