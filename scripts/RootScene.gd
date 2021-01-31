@@ -61,14 +61,14 @@ func spawn_island(coordinates):
 		return
 
 	can_spawn_island = false
-	var timer = get_tree().create_timer(2.0)
+	var timer = get_tree().create_timer(4.5)
 	timer.connect("timeout", self, "_spawn_timeout")
 
 	var island = _rnd_select_island()
 	var meshInstance = island.get_node("RigidBody/CollisionShape/MeshInstance")
 	var aabb = meshInstance.get_aabb()
 	var height = aabb.size.z
-	coordinates.y -= (height + 0.5)
+	coordinates.y -= (height + 0.2)
 	island.translate(coordinates)
 	islandsCollection.push_back(island)
 	rootScene.add_child(island)
