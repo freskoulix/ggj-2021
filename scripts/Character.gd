@@ -132,25 +132,17 @@ func anim_handler(on_air, in_motion):
 			return
 		"running":
 			if on_air:
-				animation_player.stop(true)
-				animation_player.clear_queue()
 				state_machine.travel("Jump")
 				characterState = "jump"
 			elif not in_motion:
-				animation_player.stop(true)
-				animation_player.clear_queue()
 				state_machine.travel("Idle")
 				characterState = "idle"
 			return
 		"jump":
 			if not on_air and not in_motion:
-				animation_player.stop(true)
-				animation_player.clear_queue()
 				state_machine.travel("Idle")
 				characterState = "idle"
 			elif not on_air and in_motion:
-				animation_player.stop(true)
-				animation_player.clear_queue()
 				state_machine.travel("Running")
 				characterState = "running"
 			return
