@@ -25,8 +25,6 @@ var velocity = Vector3()
 var aiming = false
 var camera_x_rot = 0.0
 
-var characterState = "idle"
-
 onready var rootScene = get_tree().get_current_scene()
 
 onready var initial_position = transform.origin
@@ -118,33 +116,27 @@ func rotate_camera(move):
 	camera_rot.rotation.x = camera_x_rot
 
 func anim_handler(on_air, in_motion):
-	match characterState:
-		"idle":
+	var current_state = state_machine.get_current_node()
+	match current_state:
+		"Idle":
 			if on_air:
 				state_machine.travel("Jump")
-				characterState = "jump"
 			elif in_motion:
 				state_machine.travel("Running")
-				characterState = "running"
 			else:
 				state_machine.travel("Idle")
-				characterState = "idle"
 			return
-		"running":
+		"Running":
 			if on_air:
 				state_machine.travel("Jump")
-				characterState = "jump"
 			elif not in_motion:
 				state_machine.travel("Idle")
-				characterState = "idle"
 			return
-		"jump":
+		"Jump":
 			if not on_air and not in_motion:
 				state_machine.travel("Idle")
-				characterState = "idle"
 			elif not on_air and in_motion:
 				state_machine.travel("Running")
-				characterState = "running"
 			return
 
 func handle_leap_of_faith(on_air, velocity_y):
