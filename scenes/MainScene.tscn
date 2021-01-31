@@ -11,9 +11,11 @@ background_mode = 3
 background_sky = SubResource( 2 )
 background_color = Color( 0.647059, 0.839216, 0.945098, 1 )
 ambient_light_color = Color( 0.647059, 0.839216, 0.945098, 1 )
+ambient_light_energy = 0.0
+ambient_light_sky_contribution = 0.1
 auto_exposure_enabled = true
 dof_blur_far_enabled = true
-dof_blur_far_distance = 20.0
+dof_blur_far_distance = 50.0
 
 [node name="MainScene" type="Spatial"]
 script = ExtResource( 1 )
@@ -28,8 +30,8 @@ script = ExtResource( 3 )
 bus = "Music"
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -0.819152, 0.573576, 0, -0.573576, -0.819152, 0, 20, -50 )
-light_energy = 0.4
+transform = Transform( 1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 20, -25.7152 )
+light_energy = 0.5
 shadow_enabled = true
 
 [node name="mainAtmos" type="AudioStreamPlayer" parent="."]
