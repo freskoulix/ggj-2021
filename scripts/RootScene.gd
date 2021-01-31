@@ -63,7 +63,7 @@ func spawn_island(coordinates):
 	can_spawn_island = false
 	var timer = get_tree().create_timer(2.0)
 	timer.connect("timeout", self, "_spawn_timeout")
-	
+
 	var island = _rnd_select_island()
 	var meshInstance = island.get_node("RigidBody/CollisionShape/MeshInstance")
 	var aabb = meshInstance.get_aabb()
